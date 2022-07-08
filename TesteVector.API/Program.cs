@@ -23,6 +23,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
 builder.Services.AddScoped(typeof(IEmailService), typeof(EmailService));
+builder.Services.AddScoped(typeof(IAccessHistoryService), typeof(AccessHistoryService));
 
 var app = builder.Build();
 

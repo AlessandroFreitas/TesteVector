@@ -4,13 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TesteVector.Domain.Models.Entities;
-using TesteVector.Domain.Models.Response;
 
 namespace TesteVector.Domain.Interfaces.Services
 {
-    public interface IEmailService
+    public interface IAccessHistoryService
     {
-        Task<EmailResponse> GetEmails();
-        Task<List<GroupedEmailResponse>> GetEmailsByHour();
+        void AddAccessHistory(List<Email> emailList);
     }
 }

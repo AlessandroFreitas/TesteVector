@@ -10,9 +10,13 @@ namespace TesteVector.Services
     public class EmailService : IEmailService
     {
         private IBaseRepository<Email> _baseRepository;
-        public EmailService(IBaseRepository<Email> baseRepository)
+        private IAccessHistoryService _accessHistoryService;
+        public EmailService(
+            IBaseRepository<Email> baseRepository, 
+            IAccessHistoryService accessHistoryService)
         {
             _baseRepository = baseRepository;
+            _accessHistoryService = accessHistoryService;
         }
 
         public async Task<EmailResponse> GetEmails()
@@ -42,23 +46,15 @@ namespace TesteVector.Services
 
         private void AddAccessHistory(List<Email>? emailList)
         {
-            //AccessHistory accessHistory = new AccessHistory()
-            //{
-            //    AccessDate = DateTime.Now,
-            //    Emails = emailList
-            //};
-
-            //_repositoryAccessHistory.Insert(accessHistory);
+            _accessHistoryService.AddAccessHistory(emailList);
         }
 
-
-
-        public async Task<List<GroupedEmailResponse>> GetEmailsPerHour()
+        public async Task<List<GroupedEmailResponse>> GetEmailsByHour()
         {
             var emailsDB = _baseRepository.Include(x => x.AccessHistory).Where(x => x.AccessHistory.AccessDate.Date == DateTime.Today);
             if (emailsDB.Count() > 0)
             {
-                return ReturnGroupedEmailList(emailsDB.ToList());
+                return ReturnEmailListGroupedByHour(emailsDB.ToList());
             }
             else
             {
@@ -72,20 +68,23 @@ namespace TesteVector.Services
 
                     AddAccessHistory(emailList);
 
-                    List<GroupedEmailResponse> result = ReturnGroupedEmailList(emailList);
+                    List<GroupedEmailResponse> result = ReturnEmailListGroupedByHour(emailList);
                     return result;
                 }
             }
         }
 
-        private EmailResponse ReturnEmailList(List<Email>? emails)
+        public EmailResponse ReturnEmailList(List<Email>? emails)
         {
             var listEmails = new EmailResponse(emails.Select(x => x.Mail).ToList());
             return listEmails;
         }
 
-        private List<GroupedEmailResponse> ReturnGroupedEmailList(List<Email>? emails)
+        public List<GroupedEmailResponse> ReturnEmailListGroupedByHour(List<Email>? emails)
         {
+            if (emails.Any(x => !x.CreatedAt.HasValue))
+                throw new Exception("Email must have a createdAt value");
+
             var groupedResult = emails.GroupBy(x => x.CreatedAt.Value.Hour)
                 .Select(y => new GroupedEmailResponse()
                 {
