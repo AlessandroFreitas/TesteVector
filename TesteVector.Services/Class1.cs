@@ -1,4 +1,4 @@
-﻿namespace TesteVector.Domain
+﻿namespace TesteVector.Services
 {
     public class Class1
     {

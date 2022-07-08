@@ -1,5 +1,9 @@
 using Microsoft.EntityFrameworkCore;
+using TesteVector.Domain.Interfaces.Repositories;
+using TesteVector.Domain.Interfaces.Services;
 using TesteVector.Infra.Data.Context;
+using TesteVector.Infra.Data.Repository;
+using TesteVector.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +20,9 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
+builder.Services.AddScoped(typeof(IEmailService), typeof(EmailService));
 
 var app = builder.Build();
 

@@ -19,4 +19,8 @@
     <ProjectReference Include="..\TesteVector.Domain\TesteVector.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
 </Project>

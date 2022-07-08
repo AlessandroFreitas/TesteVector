@@ -17,6 +17,7 @@
   <ItemGroup>
     <ProjectReference Include="..\TesteVector.Domain\TesteVector.Domain.csproj" />
     <ProjectReference Include="..\TesteVector.Infra.Data\TesteVector.Infra.Data.csproj" />
+    <ProjectReference Include="..\TesteVector.Services\TesteVector.Services.csproj" />
   </ItemGroup>
 
 </Project>

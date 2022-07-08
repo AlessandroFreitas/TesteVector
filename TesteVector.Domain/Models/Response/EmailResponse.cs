@@ -11,11 +11,11 @@ namespace TesteVector.Domain.Models.Response
     public class EmailResponse
     {
         [JsonProperty("emails")]
-        public string Mail { get; set; }
+        public List<string> Mails { get; set; }
 
-        public EmailResponse(string mail)
+        public EmailResponse(List<string> mails)
         {
-            Mail = mail;
+            Mails = mails;
         }
     }
 }

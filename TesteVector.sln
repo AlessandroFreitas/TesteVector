@@ -3,17 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32616.157
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Application", "1 - Application", "{44824334-EFC0-4E8C-BB5A-3B8475B8358B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TesteVector.API", "TesteVector.API\TesteVector.API.csproj", "{D0A33BE9-EFD8-445D-99BD-A9870DFDD85F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TesteVector.API", "TesteVector.API\TesteVector.API.csproj", "{D0A33BE9-EFD8-445D-99BD-A9870DFDD85F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TesteVector.Domain", "TesteVector.Domain\TesteVector.Domain.csproj", "{B689C9E3-6A98-4075-908A-7A9022A2199D}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Domain", "2 - Domain", "{4054D709-977C-4B45-A382-E7ECE486D518}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TesteVector.Infra.Data", "TesteVector.Infra.Data\TesteVector.Infra.Data.csproj", "{4D7BC171-CDCC-4A6A-A2EE-189F04E396CF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TesteVector.Domain", "TesteVector.Domain\TesteVector.Domain.csproj", "{B689C9E3-6A98-4075-908A-7A9022A2199D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TesteVector.Tests", "TesteVector.Tests\TesteVector.Tests.csproj", "{A2FB3520-F83B-4314-8938-C28B98699508}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Infra", "3 - Infra", "{5533E50B-71BE-405E-9E55-FDC45B32601F}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TesteVector.Infra.Data", "TesteVector.Infra.Data\TesteVector.Infra.Data.csproj", "{4D7BC171-CDCC-4A6A-A2EE-189F04E396CF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TesteVector.Services", "TesteVector.Services\TesteVector.Services.csproj", "{34753F2A-AE44-4D89-9B00-71E05BDDD27D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,14 +31,17 @@ Global
 		{4D7BC171-CDCC-4A6A-A2EE-189F04E396CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4D7BC171-CDCC-4A6A-A2EE-189F04E396CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4D7BC171-CDCC-4A6A-A2EE-189F04E396CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2FB3520-F83B-4314-8938-C28B98699508}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2FB3520-F83B-4314-8938-C28B98699508}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2FB3520-F83B-4314-8938-C28B98699508}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2FB3520-F83B-4314-8938-C28B98699508}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34753F2A-AE44-4D89-9B00-71E05BDDD27D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34753F2A-AE44-4D89-9B00-71E05BDDD27D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34753F2A-AE44-4D89-9B00-71E05BDDD27D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34753F2A-AE44-4D89-9B00-71E05BDDD27D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{D0A33BE9-EFD8-445D-99BD-A9870DFDD85F} = {44824334-EFC0-4E8C-BB5A-3B8475B8358B}
-		{B689C9E3-6A98-4075-908A-7A9022A2199D} = {4054D709-977C-4B45-A382-E7ECE486D518}
-		{4D7BC171-CDCC-4A6A-A2EE-189F04E396CF} = {5533E50B-71BE-405E-9E55-FDC45B32601F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {67FFE4C9-1DB1-4BE1-ADE1-C7C3A1A7F16D}
