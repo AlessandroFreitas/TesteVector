@@ -1,7 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.Net;
 using TesteVector.Domain.Interfaces.Repositories;
 using TesteVector.Domain.Interfaces.Services;
 using TesteVector.Domain.Models.Entities;
@@ -10,6 +13,7 @@ using TesteVector.Infra.Data.Context;
 
 namespace TesteVector.API.Controllers
 {
+
     [ApiController]
     [Route("[controller]")]
     public class EmailController : Controller
@@ -22,6 +26,9 @@ namespace TesteVector.API.Controllers
 
         [Route("GetEmails")]
         [HttpGet]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        [ProducesResponseType(typeof(EmailResponse), (int)HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(ProblemDetails), (int)HttpStatusCode.Unauthorized)]
         public async Task<IActionResult> GetEmails()
         {
             try
@@ -37,6 +44,10 @@ namespace TesteVector.API.Controllers
 
         [Route("GetEmailsByHour")]
         [HttpGet]
+        [Authorize]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        [ProducesResponseType(typeof(GroupedEmailResponse), (int)HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(ProblemDetails), (int)HttpStatusCode.Unauthorized)]
         public async Task<IActionResult> GetEmailsByHour()
         {
             try
